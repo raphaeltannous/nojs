@@ -1,5 +1,7 @@
 # noJS Hugo theme
 
+Forked from: [gitlab.com/andy.sb/nojs][14]
+
 A minimal, no-JavaScript theme for the [Hugo][1] static site generator.
 Check out the demo at [nojs.andy.sb][2].
 
@@ -105,3 +107,4 @@ Note that the [external `katex.css`][10] is loaded in the [`head.html` partial][
 [11]: https://git.andy.sb/nojs/blob/main/layouts/_markup/render-passthrough.html
 [12]: https://cdn.jsdelivr.net/npm/katex/dist/katex.css
 [13]: https://git.andy.sb/nojs/blob/main/layouts/_partials/head.html
+[14]: https://gitlab.com/andy.sb/nojs
