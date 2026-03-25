@@ -1,13 +1,39 @@
-{{- if or .Date .Params.tags }}
+{{- if or .Date .Params.tags .Params.problemSlug }}
+  {{ $isPrevious := false }}
   <div class="metadata">
     {{- with .Date }}
       {{ $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" }}
       {{ $dateHuman := . | time.Format ":date_long" }}
       <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+
+      {{ $isPrevious = true }}
     {{- end }}
-    {{- if and .Date .Params.tags }}
-      &mdash;
-      {{- partial "tags" .Params.tags }}
+
+    {{- with .Params.leetcodeProblemSlug }}
+      {{ if $isPrevious }}
+        &mdash;
+      {{ end }}
+      <a href="https://leetcode.com/problems/{{ . }}" target="_blank">Problem Link</a>
+
+      {{ $isPrevious = true }}
+    {{- end }}
+
+    {{- with .Params.leetcodeSolutionLink }}
+      {{ if $isPrevious }}
+        &mdash;
+      {{ end }}
+      <a href="{{ . }}" target="_blank">Solution Link</a>
+
+      {{ $isPrevious = true }}
+    {{- end }}
+
+    {{- with .Params.tags }}
+      {{ if $isPrevious }}
+        &mdash;
+      {{ end }}
+      {{- partial "tags" . }}
+
+      {{ $isPrevious = true }}
     {{- end }}
   </div>
 {{- end}}
