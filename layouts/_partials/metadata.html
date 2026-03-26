@@ -27,13 +27,9 @@
       {{ $isPrevious = true }}
     {{- end }}
 
+    <br />
     {{- with .Params.tags }}
-      {{ if $isPrevious }}
-        &mdash;
-      {{ end }}
       {{- partial "tags" . }}
-
-      {{ $isPrevious = true }}
     {{- end }}
   </div>
 {{- end}}
