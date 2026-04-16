@@ -6,11 +6,19 @@
   <meta name="description" content="{{ .Description | plainify }}">
 {{- end }}
 
-{{- $styles := slice "css/vars.css" "css/syntax.css" "css/main.css" "css/nav.css" -}}
+{{- $styles := slice "css/vars.css" "css/main.css" "css/nav.css" -}}
 {{- range $styles }}
   {{- with resources.Get . }}
     <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{- end }}
+{{- end }}
+
+{{- with resources.Get "css/syntax-light.css" }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" media="(prefers-color-scheme: light)">
+{{- end }}
+
+{{- with resources.Get "css/syntax-dark.css" }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" media="(prefers-color-scheme: dark)">
 {{- end }}
 
 {{ $noop := .WordCount }}
