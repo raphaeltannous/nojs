@@ -1,5 +1,5 @@
 <div class="social-icons">
-  {{ range .Site.Data.socials }}
+  {{ range hugo.Data.socials }}
     <a href="{{ .link }}" title="{{ .name }}">
       {{ with resources.Get (printf "icons/fontawesome/svgs/%s.svg" .icon) }}
         {{.Content | safeHTML }}
