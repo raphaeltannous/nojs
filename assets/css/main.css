@@ -74,6 +74,7 @@ article:not(:last-of-type) {
   gap: 0.5em;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 .tags a {
