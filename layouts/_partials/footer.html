@@ -1,3 +1,6 @@
 <div class="footer-content">
-  <p>Copyright {{ now.Year }}. All rights reserved.</p>
+  {{- with .Site.Params.footer.text }}
+    <p>{{ . }}</p>
+  {{- end }}
+  <p>&copy; {{ .Site.Title }}. All rights reserved.</p>
 </div>
